@@ -1,4 +1,4 @@
-export default function Footer() {
-    return <footer className="container h-16 bg-green-500">&copy; 2021</footer>
+export default function Footer(props) {
+    return <footer className="w-full h-16 px-5 py-10 mt-4 bg-green-400">{props.branch} Locations World Wide</footer>
     
 }

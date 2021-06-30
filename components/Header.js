@@ -1,8 +1,15 @@
+import Link from 'next/link'
+
 export default(
     function Header(props) {
         return(
-            <header className= "h-16 bg-green-500 ">
-            <h1 className="px-3 py-3 text-3xl">{props.header}</h1>
+            <header className= "flex justify-between px-10 py-10 bg-green-400 h-15 ">
+            <h1 className="px-3 text-5xl font-bold">{props.header}</h1>
+            <nav>
+                <Link href={props.link}>
+                    <a className="p-4 bg-green-100 rounded-lg" >{props.anchorTitle}</a>
+                </Link>
+            </nav>
 
             </header>)
     
