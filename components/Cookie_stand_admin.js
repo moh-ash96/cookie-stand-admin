@@ -3,7 +3,6 @@ import Header from '../components/Header'
 import Main from '../components/main'
 import Footer from '../components/Footer'
 import { useState, useEffect } from 'react'
-import { getData } from '../components/Login_form'
 
 
 export default function CookieStandAdmin({username,password}) {

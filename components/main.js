@@ -1,11 +1,15 @@
 import { useState, useEffect } from "react"
 import { hours } from '../data.js'
 import axios from 'axios'
-import { respond } from "./Cookie_stand_admin.js"
-import { getData } from "./Login_form.js"
+
 export default function Main(props) {
 
-
+    /** 
+    * This Function renders the create cookie stand form and cookie stands table
+    * @param {props} props - For the props that come from the calling page.
+    * @return {HTML} return <form> and <table> as html templates.
+    */
+    
     const baseURL = "https://cookie-stand-ashour.herokuapp.com"
     const token = "/api/token/"
     const apiData = "/api/v1/cookie_stands/"
@@ -53,43 +57,6 @@ export default function Main(props) {
         }
         return axios.delete(url, config)
     }
-    // const baseUrl = "https://cookie-stand-ashour.herokuapp.com/"
-    // const token = "api/token/"
-    // const apiData = "api/v1/cookie_stands/"
-
-    // async function getData(){
-    //     try{
-    //         const tokenResponse = await axios.post(baseUrl + token,{
-    //             username: 'mohammad',
-    //             password: 'moh123456789'
-    //         });
-    //         const {refresh, access} = tokenResponse.data;
-    //         console.log(access);
-    //         const config = {
-    //             headers: { Authorization: `Bearer ${access}`}
-    //         }
-    //         const cookieResponse = await axios.get(baseUrl + apiData, config);
-    //         return cookieResponse.data
-    //     }catch(error){
-    //         console.log(error);
-    //     }
-    //     return []
-    // }
-
-    // const apiContent = getData()
-    // console.log(apiContent);3
-
-
-
-    // let branch;
-
-
-    // const store = branch[0]
-    // let jsonBranch = JSON.stringify(branch)
-
-    // let store = branch[Object.keys(branch)[0]]
-
-    // console.log(typeof(branch), 'this is branch in main');
 
     const [location, setLocation] = useState('')
     const [min, setMin] = useState('')
@@ -141,29 +108,6 @@ export default function Main(props) {
     }, [])
 
 
-    // console.log(report,typeof(report), 'repooort');
-    // const apiContent = [
-    //     {
-    //         id: report.length+1,
-    //         location,
-    //         owner: "mohammad",
-    //         description: "Cookies",
-    //         hourly_sales: report.hourly_sales,
-    //         minimum_customers_per_hour: min,
-    //         maximum_customers_per_hour: max,
-    //         average_cookies_per_sale: avg
-    //     }
-    // ]
-
-    // const jsonObj = {
-    //     'report': report
-    //     // "location": location,
-    //     // "minCustomers": min,
-    //     // "maxCustomers": max,
-    //     // "avgCookies": avg
-    // }
-    // const data2 = JSON.stringify(data)
-
     function onChangeLoc(event) {
         event.preventDefault();
         setLocation(event.target.value);
@@ -202,7 +146,6 @@ export default function Main(props) {
         handler(event.target.id)
 
     }
-    // console.log(report);
     report.map(data=>{
 
         console.log(data.hourly_sales, 'hourly');
@@ -211,7 +154,6 @@ export default function Main(props) {
         event.preventDefault();
         let customer;
         let hourly_sales;
-        // let cumulative = 0;
         const result = []
         let data = {
             location,
@@ -223,17 +165,10 @@ export default function Main(props) {
             average_cookies_per_sale: avg
         }
 
-        // branches.push(data)
-
         for (let i = 0; i < 14; i++) {
             customer = Math.floor(Math.random() * (parseInt(max) - parseInt(min) + 1) + parseInt(min))
             hourly_sales = customer * parseFloat(avg)
             data.hourly_sales.push(Math.floor(hourly_sales))
-            // cumulative = Math.floor(hourly_sales)
-            // for (let j=0; j<report.length+1; j++){
-            //     cumulative += report[j]? report[j].hourly_sales[i]:0
-            // }
-            // result.push(cumulative)
         }
         save_data(data)
         setReport([])
