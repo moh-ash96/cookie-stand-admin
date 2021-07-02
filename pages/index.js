@@ -2,24 +2,34 @@ import Head from '../components/Head'
 import Header from '../components/Header'
 import Main from '../components/main'
 import Footer from '../components/Footer'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
+
+import CookieStandAdmin from '../components/Cookie_stand_admin'
+import LoginForm from '../components/Login_form'
 
 export default function Home() {
 
-  const [title, setTitle] = useState('Cookie Stand Admin')
-  const [branch, setBranch] = useState('0')
-  const [link, setLink] = useState('/overview')
-  const [anchorTitle, setAnchorTitle] = useState('Overview')
+  const [userName, setUserName] = useState('mohammad')
+  const [savedPassword, setPassword] = useState('moh123456789')
+  const [loggedIn, setLoggedIn] = useState(false)
 
+  function change(username, password){
+    if (username == userName && password == savedPassword){
+      setLoggedIn(true)
+    }
+
+  }
   
-  return (
-    <div className="flex flex-col items-center justify-center w-full h-full overflow-x-hidden text-2xl bg-green-100 ">
-      <Head title={title}/>
-      <div className="w-screen h-screen bg-green-100 " >
-        <Header header={title} link={link} anchorTitle={anchorTitle}/>
-        <Main title={title} setBranch={setBranch}></Main>
-        <Footer branch={branch}/>
-      </div>
+  return(
+    <div className="flex h-screen bg-green-100 ">
+      {
+        loggedIn? <CookieStandAdmin username={userName} password={savedPassword}/> : <LoginForm state={change}/>
+        // <CookieStandAdmin user={userName}/>
+      }
+
     </div>
   )
+
+
 }
+
