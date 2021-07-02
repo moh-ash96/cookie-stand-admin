@@ -21,9 +21,10 @@ export default function Home() {
   }
   
   return(
-    <div className="bg-green-100">
+    <div className="flex h-screen bg-green-100 ">
       {
-        loggedIn? <CookieStandAdmin user={userName}/> : <LoginForm state={change}/>
+        loggedIn? <CookieStandAdmin username={userName} password={savedPassword}/> : <LoginForm state={change}/>
+        // <CookieStandAdmin user={userName}/>
       }
 
     </div>
