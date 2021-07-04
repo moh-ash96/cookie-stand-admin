@@ -1,29 +1,21 @@
-# Next.js + Tailwind CSS Example
+# Cookie-Stand-admin
 
-This example shows how to use [Tailwind CSS](https://tailwindcss.com/) [(v2.2)](https://blog.tailwindcss.com/tailwindcss-2-2) with Next.js. It follows the steps outlined in the official [Tailwind docs](https://tailwindcss.com/docs/guides/nextjs).
+In this Project we have a cookie store that has several branches in several cities, and we can add them, withhourly sales to a table that posts and gets data from an API, and uses authentication for the users.
 
-It uses the new [`Just-in-Time Mode`](https://tailwindcss.com/docs/just-in-time-mode) for Tailwind CSS.
+## Getting Started
 
-## Preview
+* Clone the repo
+* run yarn install
+* run yarn dev and go to the local host website provided
+* deploy on vercel
 
-Preview the example live on [StackBlitz](http://stackblitz.com/):
+## Change Log
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/vercel/next.js/tree/canary/examples/with-tailwindcss)
+* First commit - starter nextjs code
+* second commit - the insert form is ready
+* third commit - the table is ready and it takes the information from the form only
+* fourth commit - the api is set by axios and we can POST, GET, and DELETE data from it and the login form is set and functioning.
 
-## Deploy your own
+## Deployed website
 
-Deploy the example using [Vercel](https://vercel.com?utm_source=github&utm_medium=readme&utm_campaign=next-example):
-
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/git/external?repository-url=https://github.com/vercel/next.js/tree/canary/examples/with-tailwindcss&project-name=with-tailwindcss&repository-name=with-tailwindcss)
-
-## How to use
-
-Execute [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app) with [npm](https://docs.npmjs.com/cli/init) or [Yarn](https://yarnpkg.com/lang/en/docs/cli/create/) to bootstrap the example:
-
-```bash
-npx create-next-app --example with-tailwindcss with-tailwindcss-app
-# or
-yarn create next-app --example with-tailwindcss with-tailwindcss-app
-```
-
-Deploy it to the cloud with [Vercel](https://vercel.com/new?utm_source=github&utm_medium=readme&utm_campaign=next-example) ([Documentation](https://nextjs.org/docs/deployment)).
+[Cookie Stand Admin](https://cookie-stand-admin-beryl.vercel.app/)
